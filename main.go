@@ -10,7 +10,11 @@ import (
 func main() {
 
 	http.HandleFunc("/", handler)
+	if len(os.Args) > 1 {
 	log.Fatal(http.ListenAndServe("localhost:"+os.Args[1], nil))
+}	else {
+		log.Fatal(http.ListenAndServe("localhost:8090", nil))
+	}
 
 }
 
